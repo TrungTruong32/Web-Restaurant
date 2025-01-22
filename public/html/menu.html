@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Nhà Hàng Miền Tây</title>
+    <link rel="icon" href="Introduction/LOGO.png" type="image/png" />
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../css/styles_menu.css">
+    <link rel="stylesheet" href="../css/styles_header.css">
+    <link rel="stylesheet" href="../css/styles_footer.css"> 
+    <link rel="stylesheet" href="../css/styles_introduction_booking.css">
+    <link rel="stylesheet" href="../html/booking-form.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="script_menu.js"></script>
+    <style>
+        .booking-popup{
+            background:rgba(0, 0, 0, 0.8);
+            position:fixed;
+            top:0;
+            bottom: 0;
+            left:0;
+            right: 0;
+            transform: translateY(-110%);
+            transition: transform linear 0.3s;
+            z-index:10000;
+
+        }
+        #input-checkbox2:checked ~ .booking-popup{
+            transform: translateY(0%);
+        }
+        .booking-container{
+            margin:10vh 20vw;
+            justify-content: center;
+            align-items: center;
+           
+            
+        }
+        .form-group{
+            box-sizing: border-box;
+            box-shadow: 5px 5px 5px whitesmoke;
+        }
+        .booking-heading,.booking-decoration{
+            display: flex;
+            justify-content: center;
+        }
+        #input-checkbox2{
+        position: fixed;
+        top:0;
+        right:0;
+        
+       }
+    </style>
+</head>
+<body>
+    <!-- Header container -->
+    <!-- <div id="header-container"></div> -->
+    <div id="header-container"></div>
+    <input type="checkbox" id="input-checkbox2" hidden>
+    <label for="input-checkbox2" id="take-action-order-con" class="take-action-order-con" style="writing-mode: vertical-rl; font-size: larger; text-align: center;">ĐẶT BÀN</label>
+
+    <!-- Main content -->
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1 style="background:linear-gradient(to bottom,#cd9248,#90531e 50%,#cd9248); border-radius: 55px; height: 50%; box-shadow: 0px 5px 10px #d6a01e;">
+                    Đặc Sản Miền Tây
+                    </h1>
+                <h2 style="animation: fadeInUp 1s ease;">Tinh hoa ẩm thực sông nước</h2>
+            </div>
+        </section>
+        <section class="specialty" style="margin:0">
+            <div class="specialty-trans">
+                <div style="animation: fadeInUp 1s ease;" class="specialty-choosing" ;>
+                    <a href="#special-first"><button href="#special-first" class="specialty-option">Bún mắm</button></a>
+                    <a href="#special-second"><button class="specialty-option">Cá Tai Tượng Chiên Xù</button></a>  
+                    <a href="#special-third"><button href="#special-third" class="specialty-option">Lẩu Cá Kèo</button></a>
+                    <a href="#special-fourth"><button href="#special-fourth" class="specialty-option">Cá Lóc Nướng Trui</button></a>
+                    <a href="#special-fifth"><button href="#special-fifth" class="specialty-option">Bún Nước Lèo</button></a> 
+                </div>
+
+                <div class="special-container" >
+                    <div id="special-first" class="special-transparent first" >
+                        <div class="specialty-name">Bún Mắm <br> Hương vị đậm đà khó quên</div>
+                        <div class="specialty-decoration">
+                            <img src="../images/Booking/booking-decoration.png" alt="">
+                        </div>
+                        <div class="specialty-content">
+                            Bún mắm là món ăn đặc trưng của miền Tây với nước dùng từ mắm cá linh hoặc mắm cá sặc, được nấu cùng với các loại rau củ, thịt ba chỉ, tôm, mực và không thể thiếu những lát cá hấp dẫn. Nước lèo của bún mắm có màu nâu đậm, vị mặn, ngọt hòa quyện. Khi ăn, bún mắm thường được ăn kèm với rau sống tươi ngon và những lát ớt cay nồng, làm tăng thêm sự hấp dẫn của món ăn.
+                        </div>
+                        <h3 style="position: absolute; top:50vh;left:35vw"><a class='button-link' href="">THỬ NGAY</a></h3>
+                    </div>
+                    <div class="special-image">
+                        <img src="/public/images/Menu/menu-first.jpg" alt="">
+                    </div>
+                </div>
+    
+    
+                <div class="special-container">
+                    <div id="special-second" class="special-transparent second">
+                        <div class="specialty-name">Cá Tai Tượng Chiên Xù <br> Món ăn đậm đà và giòn tan</div>
+                        <div class="specialty-decoration">
+                            <img src="../images/Booking/booking-decoration.png" alt="">
+                        </div>
+                        <div class="specialty-content">
+                            Cá tai tượng là một loài cá đặc trưng của miền Tây, có thịt dày và chắc. Khi chế biến, cá tai tượng được chiên xù giòn rụm, vàng óng, bên trong vẫn giữ được độ ngọt tự nhiên của cá. Món cá tai tượng chiên xù ăn kèm với nước mắm chua ngọt, rau sống và cơm trắng sẽ khiến bạn không thể quên được hương vị đặc biệt này.
+                        </div>
+                        <h3 style="position: absolute; top:50vh;left:35vw"><a class='button-link' href="">THỬ NGAY</a></h3>
+
+                    </div>
+                    <div class="special-image">
+                        <img src="/public/images/Menu/menu-second.jpg" alt="">
+                    </div>
+                </div>
+    
+    
+                <div class="special-container">
+                    <div id="special-third" class="special-transparent third">
+                        <div class="specialty-name">Lẩu Cá Kèo <br> Đậm đà hương vị miền sông nước</div>
+                        <div class="specialty-decoration">
+                            <img src="../images/Booking/booking-decoration.png" alt="">
+                        </div>
+                        <div class="specialty-content">
+                            Lẩu cá kèo là món ăn không thể thiếu trong những buổi tiệc gia đình hoặc tụ tập bạn bè ở miền Tây. Cá kèo có thịt mềm, ngọt, và khi nấu lẩu, nước dùng được làm từ me chua, các loại gia vị và rau thơm đặc trưng. Lẩu cá kèo thường được ăn kèm với bún tươi và rau sống, tạo nên một món ăn có sự hòa quyện giữa vị ngọt, chua và cay, khiến bạn không thể dừng đũa.
+                         </div>
+                         <h3 style="position: absolute; top:50vh;left:35vw"><a class='button-link' href="">THỬ NGAY</a></h3>
+
+                    </div>
+                    <div class="special-image">
+                        <img src="/public/images/Menu/menu-third.jpg" alt="">
+                    </div>
+                </div>
+    
+    
+                <div class="special-container">
+                    <div id="special-fourth" class="special-transparent fourth">
+                        <div class="specialty-name">Cá Lóc Nướng Trui <br>Đậm đà hương vị quê nhà</div>
+                        <div class="specialty-decoration">
+                            <img src="../images/Booking/booking-decoration.png" alt="">
+                        </div>
+                        <div class="specialty-content">
+                            Cá lóc nướng trui là món ăn dân dã nhưng lại mang đậm hương vị của vùng đất miền Tây. Cá lóc được làm sạch, ướp gia vị vừa ăn, rồi nướng trên than củi cho đến khi vỏ ngoài cháy xém và thịt bên trong thơm mềm. Khi ăn, cá lóc nướng trui được cuốn trong bánh tráng với các loại rau sống như húng quế, ngò gai, và chấm với nước mắm pha chua ngọt. Đây là món ăn không thể bỏ qua nếu bạn muốn thưởng thức hương vị miền Tây đậm đà.
+                        </div>
+                        <h3 style="position: absolute; top:50vh;left:35vw"><a class='button-link' href="">THỬ NGAY</a></h3>
+
+                    </div>
+                    <div class="special-image">
+                        <img src="/public/images/Menu/menu-fourth.jpg" alt="">
+                    </div>
+                </div>
+    
+    
+                <div class="special-container">
+                    <div id="special-fifth" class="special-transparent fifth">
+                        <div class="specialty-name">Bún Nước Lèo <br> Ngon và thanh mát</div>
+                        <div class="specialty-decoration">
+                            <img src="../images/Booking/booking-decoration.png" alt="">
+                        </div>
+                        <div class="specialty-content">
+                            Bún nước lèo là món ăn nổi tiếng ở Sóc Trăng, với nước lèo trong veo được nấu từ xương heo và các loại gia vị như củ sả, tỏi. Điểm đặc biệt của món ăn này là sự kết hợp giữa bún tươi, nước dùng thanh ngọt và những lát cá thác lác thơm ngon. Món bún nước lèo thường được ăn kèm với rau sống, giá đỗ và một chút ớt.
+                         </div>
+                         <h3 style="position: absolute; top:50vh;left:35vw"><a class='button-link' href="">THỬ NGAY</a></h3>
+
+                    </div>
+                    <div class="special-image">
+                        <img src="/public/images/Menu/menu-fifth.jpg" alt="">
+                    </div>
+                </div>           
+            </div>
+        </section>
+
+        <label for="input-checkbox2" class="booking-popup">
+            <div class="booking-container">
+                <div class="booking-heading">ĐẶT BÀN</div>
+               <div class="booking-decoration">
+                   <img src="../images/Booking/booking-decoration.png" alt="">
+               </div>
+               <form class="booking-form" action="https://api-gateway.fullstack.edu.vn/action_page.php"
+               id="booking-form"
+               autocomplete="off"
+            
+               >
+                   <div class="form-group">
+                       <input class='form-input' type="date" id="date" name="date" placeholder="NGÀY ĐẾN" aria-placeholder="NGÀY ĐẾN" required value="NGÀY ĐẾN">
+                       <input class='form-input' type="time" id="time" name="time" placeholder="THỜI GIAN" required>
+            
+                   </div>
+                   <div class="form-group">
+                       <input class='form-input' type="text" id="name" name="name" placeholder="HỌ TÊN" required>
+                   </div>
+                   
+                   <div class="form-group">
+                       <input class='form-input' type="email" id="email" name="email" placeholder="EMAIL" required>
+                   </div>
+            
+                   <div class="form-group">
+                       <input class='form-input'  type="tel" id="tel" name="tel" placeholder="SỐ ĐIỆN THOẠI" 
+                       pattern="0[0-9]{9}"
+                       title="Vui lòng nhập số điện thoại bắt đầu bằng số 0 và đủ 10 số"
+                       required
+                       title="Vui lòng nhập số điện thoại hợp lệ">>
+                       <input class='form-input' type="number" id="guest" name="guest" placeholder="SỐ LƯỢNG KHÁCH" required>   
+                   </div>
+            
+                   <div class="form-group">
+                       <select class='form-input' name="party-type" id="party-type" placeholder="LOẠI TIỆC" required>
+                           <option class="booking-option" value="default">LOẠI TIỆC</option>
+                           <option class="booking-option" value="private-date">Private date</option>
+                           <option class="booking-option" value="Gathering">Gathering</option>
+                       </select>
+                       <select class='form-input' name="chef" id="chef" placeholder="ĐẦU BẾP">
+                           <option class="booking-option" value="default">CHỌN ĐẦU BẾP</option>
+                           <option class="booking-option" value="C1">CHEF TRUNG TRƯƠNG</option>
+                           <option class="booking-option" value="C2">CHEF DIỆP PHẠM</option>
+                           <option class="booking-option" value="C3">CHEF BĂNG DƯƠNG</option>
+                           <option class="booking-option" value="C4">CHEF PETER</option>
+                       </select>    
+                   </div>
+            
+                   <div class="form-group">
+                       <select class='form-input' name="branch" id="branch" placeholder="CHI NHÁNH" required>
+                           <option class="booking-option" value="default">CHI NHÁNH</option>
+                           <option class="booking-option" value="1">CHI NHÁNH THỦ ĐỨC</option>
+                           <option class="booking-option" value="2">CHI NHÁNH QUẬN 5</option>
+                           <option class="booking-option" value="3">CHI NHÁNH QUẬN 1</option>
+                           <option class="booking-option" value="4">CHI NHÁNH QUẬN 3</option>
+                       </select>   
+                   </div>
+            
+                   <div class="form-group">
+                       <textarea class='form-input' name="note" id="note" placeholder="GHI CHÚ" style="resize: none;"></textarea>
+                   </div>
+                       <input type="submit" placeholder="ĐẶT BÀN" name="submit" id="submit" value="ĐẶT BÀN" class='form-button'>
+                       
+               </form>
+              
+            </div>
+        </label>
+        
+    <!-- Footer container -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="../js/load-components.js"></script>
+    <script src="../js/script_menu.js"></script>
+
+</body>
+</html>

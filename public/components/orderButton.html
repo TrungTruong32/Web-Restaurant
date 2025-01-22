@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đánh giá sản phẩm</title>
+    <link rel="stylesheet" href="../css/Review.css">
+    <link rel="stylesheet" href="../css/orderButton.css">
+    <link rel="stylesheet" href="../css/styles_header.css">
+    <link rel="stylesheet" href="../css/styles_footer.css"> 
+    <link rel="stylesheet" href="../css/styles_introduction_booking.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+VIC+Guides&display=swap" rel="stylesheet">
+    <style>
+        .take-action-order{
+            position: fixed;
+            z-index: 999;
+                top:130px;
+                left:0px;
+                right:0;
+                width: 20px;
+                height: 100px;
+                border-radius:0px;
+                background-color: #8a0000;
+                
+                
+                transition: all 0.3s ease-in-out;
+                color:var(--fourth-color);
+        }
+        .take-action-order-con{
+            position: fixed;
+            z-index: 999;
+                top:250px;
+                left:0px;
+                right:0;
+                width: 20px;
+                height: 100px;
+                border-radius: 0%;
+                background-color: #8a0000;
+                transition: all 0.3s ease-in-out;
+                color:var(--fourth-color);
+        }
+        .take-action-order-con:hover{
+            left:5px;
+        }
+        .take-action-order:hover{
+            left:5px;
+        }
+
+       #input-checkbox2{
+        position: fixed;
+        top:0;
+        right:0;
+       }
+
+     
+    </style>
+</head>
+
+
+<input type="checkbox" id="input-checkbox2">
+<div id="take-action-order" class="take-action-order" onclick="window.location.href='order.html'" style="writing-mode: vertical-rl; font-size: larger;  text-align: center;">GỌI MÓN</div>
+<!-- <div id="take-action-order-con" class="take-action-order-con" onclick="window.location.href='booking_table.html'" style="writing-mode: vertical-rl; font-size: larger; text-align: center;">ĐẶT BÀN</div> -->
+<label for="input-checkbox2" id="take-action-order-con" class="take-action-order-con" style="writing-mode: vertical-rl; font-size: larger; text-align: center;">ĐẶT BÀN</label>
+

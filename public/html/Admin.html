@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/Admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="admin-container">
+        <nav class="heading">
+            <div class='heading-container'>
+                <div class="heading-option-container">
+                    <div class="heading-option"><a href="introduction.html" class="btn-link" id="intro-link">Giới thiệu</a></div>  
+                    <div class="heading-option"><a href="Review.html" class="btn-link" id="review-link">Đánh giá</a></div>  
+                    <div class="heading-option"><a href="checkout.html" class="btn-link" id="checkout-link">Mang đi</a></div>  
+                    <div class="heading-option"><a href="menu.html" class="btn-link" id="menu-link">Thực đơn</a></div>  
+                    <div class="heading-option"><a href="order.html" class="btn-link" id="order-link">Đặt món</a></div>  
+                    <div class="heading-option"><a href="booking_table.html" class="btn-link" id="booking-link">Đặt bàn</a></div>  
+
+                </div>
+                <div class = 'heading-logo'>
+                    <a href="">
+                    </a>
+                </div>
+            <div>        
+        </nav>
+        <aside class="sidebar">
+            <h1>Tổng quan</h1>
+            <ul>
+                <!-- <li><a href="#revenue-report" class="active">Quản lý doanh thu</a></li> -->
+                <li><a href="#revenue-report" class = "active">Quản lý doanh thu</a></li>
+                <li><a href="#reservations" >Quản lý đặt bàn</a></li>
+                <li><a href="#menu">Quản lý thực đơn</a></li>
+                <li><a href="#tables">Quản lý bàn</a></li>
+                <li><a href="#customer">Quản lý khách hàng</a></li>
+                <li><a href="#orders">Quản lý đơn hàng</a></li>
+                <li><a href="#reviews">Đánh giá khách hàng</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <!-- Thêm phần hiển thị Quản lý doanh thu -->
+            <section id="revenue-report" style="display: block;">
+                <h1>Quản lý doanh thu</h1>
+                <div class="revenue-report">
+                    <!-- <h2>Báo cáo doanh thu</h2> -->
+                    <input type="date" id="report-date-filter" />
+                    <button id="filter-btn">Lọc</button>
+                    <div id="revenue-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ngày</th>
+                                    <th>Tổng doanh thu</th>
+                                </tr>
+                            </thead>
+                            <tbody id="revenue-data">
+                                <!-- Doanh thu sẽ được thêm vào đây -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <canvas id="revenue-chart" width="400" height="200"></canvas>
+                </div>
+            </section>
+            <section id="reservations" style="display: none;">
+                <h1>Quản lý đặt bàn</h1>
+                <table id="booking-table">
+                    <thead>
+                        <tr>
+                            <th>Tên khách hàng</th>
+                            <th>Số điện thoại</th>
+                            <th>Email</th>
+                            <th>Số người</th>
+                            <th>
+                                Ngày đến
+                                <i class="fas fa-sort" onclick="sortTable(4)"></i>                             </th>
+                            <th>Thời gian </th>
+                            <th>Chi nhánh</th>
+                            <th>Loại tiệc</th>
+                            <th>Đầu bếp</th>
+                            <th>Ghi chú</th>
+                            <th>Trạng thái</th>
+                            <th>Lý do</th>
+                            <th>Bàn</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reserve"> </tbody>
+                </table>
+            </section>
+
+            <section id="menu" style="display: none;">
+                <h1>Quản lý thực đơn</h1>
+                <button id="add-menu" class="add-menu-btn">Thêm món mới</button>
+                <div id="menu-items" class="menu-items"></div>
+            </section>
+
+            <section class="tables" id="tables">
+                <h1>Quản lý bàn</h1>
+                <div id="tables-container">
+                </div>
+            </section>
+
+            <section id="customer" style="display: none;">
+                <h1>Quản lý khách hàng</h1>
+                <table id="customerTable">
+                    <thead>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Tổng số tiền</th>
+                            <th>Tổng số lần</th>
+                            <th>Ghi chú</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customer"></tbody>
+                </table>
+            </section>
+
+            <section id="orders" style="display: none;">
+                <h1>Quản lý đơn hàng</h1>
+                <div class="order-filters">
+                    <select id="order-type-filter">
+                        <option value="all">Tất cả loại đơn</option>
+                        <option value="delivery">Giao hàng</option>
+                        <option value="dine-in">Ăn tại chỗ</option>
+                        <option value="takeaway">Mang về</option>
+                    </select>
+                    <select id="order-status-filter">
+                        <option value="all">Tất cả trạng thái</option>
+                        <option value="new">Mới</option>
+                        <option value="processing">Đang xử lý</option>
+                        <option value="completed">Hoàn thành</option>
+                        <option value="cancelled">Đã hủy</option>
+                    </select>
+                    <input type="date" id="date-filter" />
+                </div>
+                <div id="orders-container">
+                    <!-- Đơn hàng sẽ được thêm vào đây bằng JavaScript -->
+                </div>
+            </section>
+            <section id="reviews" style="display: none;">
+                <h1>Đánh giá khách hàng</h1>
+                <table id="reviews-table">
+                    <thead>
+                        <tr>
+                            <th>SĐT</th>
+                            <th>Sao</th>
+                            <th>Đánh giá</th>
+                            <th>Ngày đánh giá</th>
+                            <th>Thay đổi</th>
+                    </thead>
+                    <tbody id="reviews-data"></tbody>
+                </table>
+            </section> 
+            
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/Admin.js"></script>
+</body>
+</html>

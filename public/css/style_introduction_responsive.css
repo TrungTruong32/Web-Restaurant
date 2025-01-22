@@ -1,0 +1,8 @@
+@media (max-width:1023px){
+    .cover-photo{
+        height: 60vh;
+    }
+    .cover-name{
+        font-size: 25px;
+    }
+}

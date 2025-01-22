@@ -1,0 +1,106 @@
+<style>
+    .booking-popup{
+        background:rgba(0, 0, 0, 0.8);
+        position:fixed;
+        top:0;
+        bottom: 0;
+        left:0;
+        right: 0;
+        transform: translateY(-110%);
+        transition: transform linear 0.3s;
+
+    }
+    #input-checkbox2:checked ~ .booking-popup{
+        transform: translateY(0%);
+    }
+    .booking-container{
+        margin:10vh 20vw;
+        justify-content: center;
+        align-items: center;
+       
+        
+    }
+    .form-group{
+        box-sizing: border-box;
+        box-shadow: 5px 5px 5px whitesmoke;
+    }
+    .booking-heading,.booking-decoration{
+        display: flex;
+        justify-content: center;
+    }
+    #input-checkbox2{
+    position: fixed;
+    top:0;
+    right:0;
+    
+   }
+</style>
+
+<label for="input-checkbox2" class="booking-popup">
+    <div class="booking-container">
+        <div class="booking-heading">ĐẶT BÀN</div>
+       <div class="booking-decoration">
+           <img src="../images/Booking/booking-decoration.png" alt="">
+       </div>
+       <form class="booking-form" action="https://api-gateway.fullstack.edu.vn/action_page.php"
+       id="booking-form"
+       autocomplete="off"
+    
+       >
+           <div class="form-group">
+               <input class='form-input' type="date" id="date" name="date" placeholder="NGÀY ĐẾN" aria-placeholder="NGÀY ĐẾN" required value="NGÀY ĐẾN">
+               <input class='form-input' type="time" id="time" name="time" placeholder="THỜI GIAN" required>
+    
+           </div>
+           <div class="form-group">
+               <input class='form-input' type="text" id="name" name="name" placeholder="HỌ TÊN" required>
+           </div>
+           
+           <div class="form-group">
+               <input class='form-input' type="email" id="email" name="email" placeholder="EMAIL" required>
+           </div>
+    
+           <div class="form-group">
+               <input class='form-input'  type="tel" id="tel" name="tel" placeholder="SỐ ĐIỆN THOẠI" 
+               pattern="0[0-9]{9}"
+               title="Vui lòng nhập số điện thoại bắt đầu bằng số 0 và đủ 10 số"
+               required
+               title="Vui lòng nhập số điện thoại hợp lệ">>
+               <input class='form-input' type="number" id="guest" name="guest" placeholder="SỐ LƯỢNG KHÁCH" required>   
+           </div>
+    
+           <div class="form-group">
+               <select class='form-input' name="party-type" id="party-type" placeholder="LOẠI TIỆC" required>
+                   <option class="booking-option" value="default">LOẠI TIỆC</option>
+                   <option class="booking-option" value="private-date">Private date</option>
+                   <option class="booking-option" value="Gathering">Gathering</option>
+               </select>
+               <select class='form-input' name="chef" id="chef" placeholder="ĐẦU BẾP">
+                   <option class="booking-option" value="default">CHỌN ĐẦU BẾP</option>
+                   <option class="booking-option" value="C1">CHEF TRUNG TRƯƠNG</option>
+                   <option class="booking-option" value="C2">CHEF DIỆP PHẠM</option>
+                   <option class="booking-option" value="C3">CHEF BĂNG DƯƠNG</option>
+                   <option class="booking-option" value="C4">CHEF PETER</option>
+               </select>    
+           </div>
+    
+           <div class="form-group">
+               <select class='form-input' name="branch" id="branch" placeholder="CHI NHÁNH" required>
+                   <option class="booking-option" value="default">CHI NHÁNH</option>
+                   <option class="booking-option" value="1">CHI NHÁNH THỦ ĐỨC</option>
+                   <option class="booking-option" value="2">CHI NHÁNH QUẬN 5</option>
+                   <option class="booking-option" value="3">CHI NHÁNH QUẬN 1</option>
+                   <option class="booking-option" value="4">CHI NHÁNH QUẬN 3</option>
+               </select>   
+           </div>
+    
+           <div class="form-group">
+               <textarea class='form-input' name="note" id="note" placeholder="GHI CHÚ" style="resize: none;"></textarea>
+           </div>
+               <input type="submit" placeholder="ĐẶT BÀN" name="submit" id="submit" value="ĐẶT BÀN" class='form-button'>
+               
+       </form>
+      
+    </div>
+    <script src="../js/Booking.js"> </script>
+</label>

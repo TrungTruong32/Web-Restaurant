@@ -1,0 +1,552 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f9f9f9;
+    color: #333;
+}
+
+/* Hero Section */
+.hero {
+    height: 60vh;
+    min-height: 100px;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('/public/cs/images/background.jpg') center/cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+    width: 90%;
+    max-width: 800px;
+    padding: 0 15px;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5em);
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease;
+}
+
+.hero p {
+    font-size: clamp(1rem, 3vw, 1.5em);
+    animation: fadeInUp 1s ease 0.3s both;
+}
+
+/* Floating Leaves Animation */
+.floating-leaves {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.leaf {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url('../images/decoration/lotus_fly.png') center/contain no-repeat;
+    opacity: 0.7;
+    animation: floatLeaf 15s linear infinite;
+    mix-blend-mode: screen;
+    filter: brightness(1.2);
+}
+
+/* Container styles */
+.menu-container {
+    max-width: 1200px;
+    margin: 80px auto 40px;
+    padding: 0 20px;
+    display: flex;
+    gap: 30px;
+}
+
+/* Menu Grid Section */
+.menu-section {
+    padding: 40px 0;
+    background: #f9f9f9;
+}
+
+/* Menu Grid */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    max-width: 1200px; /* Giới hạn chiều rộng của grid */
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Responsive adjustments */
+@media (min-width: 1400px) {
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr); /* Cố định 3 cột trên màn hình lớn */
+        max-width: 1200px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .hero {
+        height: 70vh; /* Tăng chiều cao hero section trên màn hình lớn */
+    }
+}
+
+@media (max-width: 1200px) {
+    .menu-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 15px;
+    }
+}
+
+/* Card styles */
+.dish-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 100%; /* Đảm bảo các card cùng chiều cao */
+    display: flex;
+    flex-direction: column;
+}
+
+.dish-image {
+    position: relative;
+    padding-top: 66.67%; /* Tỷ lệ 3:2 cho hình ảnh */
+    overflow: hidden;
+}
+
+.dish-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.dish-info {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dish-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.dish-info .description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 12px;
+    flex-grow: 1;
+}
+
+.dish-info .price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ff7b00;
+    margin-bottom: 10px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background: #f0f0f0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Order button */
+.order-btn {
+    background: #ff7b00;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* .order-btn:hover {
+    background: #ff9933;
+} */
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero {
+        height: 25vh;
+        min-height: 250px;
+    }
+
+    .categories {
+        top: 60px;
+        padding: 15px 5px;
+    }
+
+    .category-nav {
+        gap: 8px;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 5px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .category-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .category-btn {
+        padding: 6px 12px;
+        font-size: 0.875rem;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+    .dish-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .dish-info .description {
+        font-size: 0.85rem;
+    }
+
+    .dish-info .price {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 25vh;
+        min-height: 200px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .categories {
+        padding: 10px 5px;
+    }
+
+    .category-btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Hover effects */
+.dish-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.dish-card:hover .dish-image img {
+    transform: scale(1.05);
+}
+
+.dish-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dish-card:hover .dish-overlay {
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatLeaf {
+    0% {
+        transform: translate(0, -100%) rotate(0deg) scale(0.8);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.7;
+    }
+    80% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(100vw, 100vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Floating Decoration */
+.floating-decoration {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+    pointer-events: none;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.1));
+    mix-blend-mode: multiply; /* Loại bỏ nền trắng */
+    background-color: transparent;
+}
+
+.floating-lotus {
+    width: 100px;
+    animation: float 4s ease-in-out infinite;
+    mix-blend-mode: multiply;
+    opacity: 0.9;
+}
+
+.floating-leaf {
+    width: 60px;
+    position: absolute;
+    top: -30px;
+    right: 80px;
+    animation: float 3s ease-in-out infinite 0.5s;
+    mix-blend-mode: multiply;
+    opacity: 0.85;
+}
+
+/* Categories Section */
+.categories {
+    padding: 20px 10px;
+    background: #fff;
+    position: sticky;
+    top: 40px;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.category-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.category-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    white-space: nowrap;
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background: #ff7b00;
+    color: white;
+}
+
+
+
+/* Thêm animation mượt mà cho category scroll */
+@media (hover: none) {
+    .category-nav {
+        scroll-behavior: smooth;
+    }
+} 
+
+/* Menu Categories */
+.menu-categories {
+    width: 220px;
+    flex-shrink: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.menu-categories h2 {
+    text-align: center;
+    color: #8B0000;
+    padding: 15px 10px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.category-list {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.category-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #333;
+    font-size: 0.95rem;
+    border-left: 3px solid transparent;
+}
+
+.category-item:hover,
+.category-item.active {
+    background: rgba(139, 0, 0, 0.05);
+    color: #8B0000;
+    border-left-color: #8B0000;
+}
+
+/* Menu Content */
+.menu-content {
+    flex: 1;
+    min-width: 0; /* Để tránh overflow trên flex */
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .menu-container {
+        max-width: 900px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-container {
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 60px;
+    }
+
+    .menu-categories {
+        width: 100%;
+    }
+    
+    .category-list {
+        display: flex;
+        overflow-x: auto;
+        padding: 5px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    
+    .category-list::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .category-item {
+        white-space: nowrap;
+        padding: 8px 15px;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+    }
+    
+    .category-item:hover,
+    .category-item.active {
+        border-left: none;
+        border-bottom-color: #8B0000;
+        background: none;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-container {
+        padding: 0 10px;
+        margin-top: 50px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-item {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+}
+
+/* Animation */
+.category-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.category-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #8B0000;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.category-item:hover::after,
+.category-item.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+} 

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gathering - Nhà hàng Miền Tây</title>
+    <link rel="stylesheet" href="/public/css/gathering.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="Introduction/LOGO.png" type="image/jpg" />
+    <script src="script_introduction.js"></script> 
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="../css/styles_introduction_booking.css">
+    <link rel="stylesheet" href="../css/styles_header.css">
+    <link rel="stylesheet" href="../css/styles_footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+VIC+Guides&display=swap" rel="stylesheet">
+  <style>
+        .heading-information{
+            position:absolute;
+            top:3vh;
+            width:100vw;
+            margin-top:10vh;
+            z-index: 55;
+            display:flex;
+            flex:1;
+            justify-content: center;
+            align-items: center;
+                    }
+        .heading-information h1{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Playwrite AU VIC Guides", serif;
+            font-weight: 400;
+            font-style: normal;
+            color:black;
+            font-size: 3rem;
+            z-index: 55px;
+           
+}
+    </style>
+</head>
+
+<body>
+    <div id="header-container"></div>
+    <div id="take-action-order" class="take-action-order" onclick="window.location.href='order.html'" style="writing-mode: vertical-rl; font-size: larger;  text-align: center;">GỌI MÓN</div>
+    <div id="take-action-order-con" class="take-action-order-con" onclick="window.location.href='booking_table.html'" style="writing-mode: vertical-rl; font-size: larger; text-align: center;">ĐẶT BÀN</div>
+
+    <div class="heading-information">
+        <h1>Họp mặt cùng gia đình, bạn bè <br>trong không gian ấm cúng của chúng tôi</h1>
+    </div>
+    <div class="container">
+        <div class="slider">
+            <div class="box1">
+            </div>
+            <div class="box2">
+            </div>
+            <div class="box3">
+            </div>
+            <div class="box4">
+            </div>
+            <div class="box5">
+            </div>
+            <div class="box6">
+            </div>
+            <div class="box7">
+            </div>
+        </div>
+    </div>
+    <div id="test"></div>
+
+<!-- Footer container -->
+<div id="footer-container"></div>
+    <!-- Js -->
+    <script src="../js/load-components.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        function rotate() {
+            var lastChild = $('.slider div:last-child').clone();
+            /*$('#test').html(lastChild)*/
+            $('.slider div').removeClass('firstSlide')
+            $('.slider div:last-child').remove();
+            $('.slider').prepend(lastChild)
+            $(lastChild).addClass('firstSlide')
+        }
+
+        window.setInterval(function () {
+            rotate()
+        }, 4000);
+
+    </script>
+</body>
+
+</html>

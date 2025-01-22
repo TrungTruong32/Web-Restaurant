@@ -1,0 +1,285 @@
+:root {
+    --primary-color: #131010;
+    --second-color: #543A14;
+    --third-color: #F0BB78;
+    --fourth-color: #FFF0DC;
+    --cover-height: 13vh;
+    --button-color: #1F4529;
+
+}
+
+a{
+    text-decoration: none;
+}
+
+* {
+    left: 0;
+    box-sizing:border-box;
+
+}
+h1{
+    color: var(--third-color);
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 18px;
+}
+
+h2{
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 900;
+    font-style: normal;
+    color: var(--fourth-color);
+    align-items:end;
+}
+h3{
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--fourth-color);
+    align-items:center;
+}
+
+p{
+    font-family: "Philosopher", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+    word-spacing: 3px;
+    text-align: justify;
+    color:var(--third-color)
+}
+body{
+    inset: auto;
+    margin:0;
+    padding:0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* ------------------------------heading-------------------- */
+.heading{
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    top:0;
+    left:0;
+    /* right: 0; */
+    margin:0;
+    padding:0;
+    z-index: 999; /*đặt số thật lớn để luôn nằm trên cùng */
+
+}
+
+.heading-container {
+    height: var(--cover-height);
+    background-color: var(--second-color);
+    display: flex;
+    justify-content:space-between;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+}
+
+.heading-option {
+    padding: 14px;
+    align-items: center;
+    position:relative;
+    /* background-color: aliceblue; */
+    align-self: center;
+}
+.heading-option a {
+    text-decoration: none;
+    color: var(--fourth-color);
+}
+
+.heading-option-container{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    padding: 5px;
+
+}
+
+.heading-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+.heading-option-sub-menu{
+    position: absolute;
+    background: linear-gradient(to bottom, var(--second-color) 60%,var(--primary-color));
+    top:30px;
+    padding-left: 8px;
+    padding-bottom: 8px;
+    min-width: 130px;
+    min-height: max-content;
+    display: none;
+    border-top: 10px;
+    border-radius: 2px;
+    /* border: 1px solid red; */
+    box-shadow: 0 3px 2px var(--fourth-color);
+    
+  }
+.heading-option:hover>.heading-option-sub-menu {
+    display: block;
+}
+
+  .heading-option-sub-menu li{
+    list-style-type: none;
+    margin: 5px;
+    color:var(--fourth-color);
+    z-index: 1200;
+    font-weight:10px;
+  }
+
+.sub-option{
+    transition: all 0.3s ease-in-out; /* Áp dụng chuyển đổi cho tất cả các thuộc tính */
+  
+    &:hover {
+      /* transform: translateX(8px) ; Dịch chuyển và phóng to */
+      color: var(--third-color); /* Thay đổi màu chữ */
+      /* font-weight:10px; */
+      /* font-size: 18px; */
+    }
+  }
+
+
+/*------------------------------------- Version 2------------------------------- */
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shadowRun {
+    0% {
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Bóng ở góc trên trái */
+    }
+    25% {
+        box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3); /* Bóng ở góc trên phải */
+    }
+    50% {
+        box-shadow: -5px -5px 15px rgba(0, 0, 0, 0.3); /* Bóng ở góc dưới phải */
+    }
+    75% {
+        box-shadow: 5px -5px 15px rgba(0, 0, 0, 0.3); /* Bóng ở góc dưới trái */
+    }
+    100% {
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Quay lại vị trí ban đầu */
+    }
+}
+.menu-bar{
+    position: fixed;
+    top:0;
+    left:0;
+    margin-top: 10px;
+    margin-left: 10px;
+    z-index: 999;
+}
+.menu-bar-button{
+    /* width: 200px;
+    height: 200px; */
+    color: var(--fourth-color);
+}
+.menu-bar-button i{
+    width: 200px;
+    height: 200px;
+}
+.menu-bar-overlay{
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color: rgb(0,0,0,0.8);
+    display:none;
+    animation: fadeIn linear 0.4s ;
+}
+
+.menu-bar-scrollbar{
+    position: fixed;
+    top:0;
+    left:0;
+    bottom: 0;
+    width: 310px;
+    max-width: 100%;
+    z-index: 10000!important;
+    background-color: var(--third-color);
+    transform: translateX(-100%);
+    transition: transform linear 0.3s;
+}
+.menu-bar-logo{
+    width: 310px;
+    max-width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-bar-close{
+    display: flex;
+    justify-content: flex-end;
+    margin-top:20px;
+    margin-right:20px;
+    color: var(--primary-color);
+}
+.menu-bar-logo img{
+    width: 100px;
+    height: 100px;
+    border-radius: 55px;
+    display: flex;
+    justify-content: center;
+}
+.menu-bar-option{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20vh;
+}
+.menu-bar-option a{
+    text-decoration: none;
+    color:var(--primary-color);
+    font-family: "Libre Franklin", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+}
+
+.menu-bar-choice{
+    padding: 10px 15px;
+    transition: all 0.2s ease-in;   
+
+}
+.menu-bar-choice:hover{
+    transform: translateY(5px);
+    box-shadow: 2px -2px 5px var(--fourth-color);
+}
+.menu-bar-checkbox:checked ~ .menu-bar-overlay{
+    display: block;
+}
+.menu-bar-checkbox:checked ~ .menu-bar-scrollbar{
+    transform: translateX(0%);
+    
+}
+
+.menu-bar-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20px; /* Adjust spacing as needed */
+}
+
+.menu-bar-title h1 {
+    font-family: 'Cormorant Garamond', serif; /* Use a stylish font */
+    font-size: 2rem; /* Increase font size */
+    color: var(--second-color); /* Use your defined color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle shadow for depth */
+    margin: 0; /* Remove default margin */
+    letter-spacing: 1px; /* Add some spacing between letters */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}

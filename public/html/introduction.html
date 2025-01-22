@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Giới thiệu - Nhà hàng Miền Tây</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles_introduction_booking.css">
+    <link rel="stylesheet" href="../css/style_introduction_responsive.css">
+    <link rel="stylesheet" href="../css/styles_header.css">
+    <link rel="stylesheet" href="../css/styles_footer.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="Introduction/LOGO.png" type="image/jpg" />
+    <script src="script_introduction.js"></script> 
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="../css/style_introduction_responsive.css/">
+    <title>Document</title>
+    <style>
+        .booking-popup{
+            background:rgba(0, 0, 0, 0.8);
+            position:fixed;
+            top:0;
+            bottom: 0;
+            left:0;
+            right: 0;
+            transform: translateY(-110%);
+            transition: transform linear 0.3s;
+
+        }
+        #input-checkbox2:checked ~ .booking-popup{
+            transform: translateY(0%);
+        }
+        .booking-container{
+            margin:10vh 20vw;
+            justify-content: center;
+            align-items: center;
+           
+            
+        }
+        .form-group{
+            box-sizing: border-box;
+            box-shadow: 5px 5px 5px whitesmoke;
+        }
+        .booking-heading,.booking-decoration{
+            display: flex;
+            justify-content: center;
+        }
+        #input-checkbox2{
+        position: fixed;
+        top:0;
+        right:0;
+        
+       }
+    </style>
+</head>
+<body>
+    <!-- Include Header -->
+    <div id="header-container"></div>
+    <input type="checkbox" id="input-checkbox2" hidden>
+    <label for="input-checkbox2" id="take-action-order-con" class="take-action-order-con" style="writing-mode: vertical-rl; font-size: larger; text-align: center;">ĐẶT BÀN</label>
+       <div class="cover-background">
+        <div class="cover-photo" >
+            <h1 class="cover-name">NHÀ HÀNG MIỀN TÂY</h1>
+            <h2 class="cover-slogan" style="font-style: italic; padding: 2px 10px 2px 10px; opacity: 1;">"Một chốn bình yên giữa lòng thành phố"</h2>
+        </div>  
+   </div> 
+   
+   <nav id="introduction" class="introduction">
+    <div class="introduction-container">
+        <div class="introduction-first">
+            <div class="introduction-first-deco"></div>
+            <div class="introduction-first-content">
+                <h2 class="underline-effect" >Khởi nguồn từ tình yêu quê hương...</h2>
+                <p> "Nhà hàng Miền Tây là một hành trình ẩm thực đầy cảm xúc, được truyền cảm hứng từ những chuyến đi xa xứ của đầu bếp Trung Trương. </p>
+                <p>Với mong muốn mang đến một làn gió mới cho ẩm thực miền Tây, nhà hàng đã khéo léo kết hợp những hương vị truyền thống quen thuộc với những kỹ thuật nấu ăn hiện đại, tạo nên những món ăn độc đáo, mang đậm dấu ấn cá nhân.</p>  
+                <p>Không gian nhà hàng được thiết kế tinh tế, kết hợp hài hòa giữa nét cổ kính của miền Tây và sự hiện đại, tạo nên một không gian ẩm thực vừa quen vừa lạ, đầy bất ngờ."</p>
+            </div> 
+        </div>
+
+
+        <div class="introduction-second">
+            <div class="introduction-second-content">
+                <p>"Mùa nào thức nấy: Khám phá sự thay đổi của ẩm thực miền Tây theo từng mùa và những nguyên liệu đặc trưng của mỗi mùa"</p> 
+            </div>
+            <div class="introduction-second-content">
+                <img src="/public/images/Introduction/introduction-second-content-1.jpg" alt="introduction-second-content-1">
+            </div>
+            <div class="introduction-second-content">
+                <img src="/public/images/Introduction/introduction-second-content-2.jpg" alt="introduction-second-content-2">
+            </div>
+            <div class="introduction-second-content">
+                <img src="/public/images/Introduction/introduction-second-content-3.jpg" alt="introduction-second-content-3">
+            </div>
+            <div class="introduction-second-content" >
+                <p>"Từ đồng ruộng đến bàn ăn: Khám phá sự phong phú của nguyên liệu và hương vị trong ẩm thực miền Tây"</p> 
+            </div>
+            <div class="introduction-second-content">
+                <img src="/public/images/Introduction/introduction-second-content-4.jpg" alt="introduction-second-content-4">
+            </div>
+            <div class="introduction-second-content">
+                <img src="/public/images/Introduction/introduction-second-content-5.jpg" alt="introduction-second-content-5">
+            </div>
+            <div class="introduction-second-content" >
+                <img src="/public/images/Introduction/introduction-second-content-6.jpg" alt="introduction-second-content-6">
+            </div>
+        </div>
+    </div>
+   </nav>
+    
+
+<nav class="body-chef-introduction" id="body-chef-introduction"> 
+    <div class="body-chef-container">
+            <div class="body-chef-container-left">   
+            <h2 class="underline-effect" style="margin-top:0;margin-left:50%;padding-bottom:30px;display: flex; justify-content: center; align-items: center;">Từ những đầu bếp tận tâm...</h2>         
+            <img src="/public/images/Introduction/chef-illustration-1.jpg" alt="Ảnh 1" class="chef1" style="width: 9vw;">
+            <img src="/public/images/Introduction/chef-illustration-2.jpg" alt="Ảnh 2" class="chef2" style="width: 9vw;">
+            <img src="/public/images/Introduction/chef-illustration-4.jpg" alt="Ảnh 3" class="chef3" style="width: 9vw;">
+            <img src="/public/images/Introduction/chef-illustration-3.jpg" alt="Ảnh 4" class="chef4" style="width: 9vw;">   
+        </div>
+
+        <div class="body-chef-container-right">  
+            <div class="body-chef-container-right-content" id="first-container">  
+          
+                <img src="/public/images/Introduction/chef-1.jpg" class="chef-image" alt="">                   
+                <h3><a class='button-link' href="">Chef Trung Trương</a></h3>
+                <p>15 năm kinh nghiệm</p>
+                <p class="chef-quote">"Ẩm thực miền Tây không chỉ là thức ăn cho cơ thể mà còn là thức ăn cho tâm hồn."</p>
+            </div>
+
+            <div class="body-chef-container-right-content" id="second-container">
+                <img src="/public/images/Introduction/chef-2.jpg" class="chef-image" alt="">
+                <h3><a href="" class='button-link'>Chef Diệp Phạm</a></h3>
+                <p>10 năm kinh nghiệm, 2 sao Michelin</p>
+                <p class="chef-quote">Bếp là sân chơi của tôi, nơi tôi thỏa sức sáng tạo và phá vỡ mọi giới hạn.</p>
+           </div>
+
+           <div class="body-chef-container-right-content" id="third-container">
+                <img src="/public/images/Introduction/chef-4.jpg" class="chef-image" alt=""> 
+                <h3><a href="" class="button-link">Chef Băng Dương</a></h3>
+                <p>10 năm kinh nghiệm, 2 sao Michelin</p>
+                <p class="chef-quote">"Ẩm thực là cuộc phiêu lưu không giới hạn, tôi kết hợp Đông Tây để tạo ra những hương vị bất ngờ."</p>
+            </div>
+
+            <div class="body-chef-container-right-content" id="fourth-container">
+                <img src="/public/images/Introduction/chef-3.jpg" class="chef-image" alt="">
+                <h3><a href="" class="button-link">Chef Peter Pan</a></h3>
+                <p>10 năm kinh nghiệm, 2 sao Michelin</p>
+                <p class="chef-quote">"Asian flavors are an endless journey of discovery, where spices tell stories."</p>   
+            </div> 
+
+            <div class="slider-swap">
+                <a href="#first-container"></a>
+                <a href="#second-container"></a>
+                <a href="#third-container"></a>
+                <a href="#fourth-container"></a>
+            </div>
+        </div>
+   </nav>
+
+
+<div id = "rating-container" class="rating-container">
+    <h2 class="underline-effect"style="margin-top:0;margin-left:18%;padding-bottom:30px;">Khách hàng nói gì về chúng tôi?</h2>             
+    <div class="rating-content-upper">
+        <div class="rating-spacing">
+            <p id="comment1" class="comment">
+                "Không gian quán rất ấm cúng, với những bức tranh tre trúc và tiếng nhạc trữ tình. Cảm giác như đang ngồi ăn ở nhà hàng xóm vậy."
+            </p>
+            <!-- <p class="star-rating"></p> -->
+        </div>
+        <div class="rating-cooking">
+            <p id="comment2" class="comment">Cá lóc nướng trui thơm phức, thịt ngọt, chấm với mắm nêm bao ngon!"</p>
+        </div>
+    </div>
+    <div class="rating-content-below">
+        <div class="rating-parking">
+            <p id="comment3" class="comment">Mình rất hài lòng với bữa ăn tại nhà hàng này. Món lẩu mắm đậm đà, hải sản tươi ngon. Bãi đậu xe rộng rãi, thuận tiện. Nhân viên phục vụ nhanh nhẹn, nhiệt tình.</p>
+        </div>
+        <div class="rating-serving">
+            <p id="comment4" class="comment"> "Nhân viên phục vụ tại quán rất nhiệt tình và chu đáo. Họ luôn sẵn lòng hỗ trợ khách hàng và tư vấn món ăn một cách tận tình. Nhờ có họ mà bữa ăn của tôi trở nên thật thoải mái và đáng nhớ."</p>
+        </div>
+    </div>
+</div>
+
+<label for="input-checkbox2" class="booking-popup">
+    <div class="booking-container">
+        <div class="booking-heading">ĐẶT BÀN</div>
+       <div class="booking-decoration">
+           <img src="../images/Booking/booking-decoration.png" alt="">
+       </div>
+       <form class="booking-form" action="https://api-gateway.fullstack.edu.vn/action_page.php"
+       id="booking-form"
+       autocomplete="off"
+    
+       >
+           <div class="form-group">
+               <input class='form-input' type="date" id="date" name="date" placeholder="NGÀY ĐẾN" aria-placeholder="NGÀY ĐẾN" required value="NGÀY ĐẾN">
+               <input class='form-input' type="time" id="time" name="time" placeholder="THỜI GIAN" required>
+    
+           </div>
+           <div class="form-group">
+               <input class='form-input' type="text" id="name" name="name" placeholder="HỌ TÊN" required>
+           </div>
+           
+           <div class="form-group">
+               <input class='form-input' type="email" id="email" name="email" placeholder="EMAIL" required>
+           </div>
+    
+           <div class="form-group">
+               <input class='form-input'  type="tel" id="tel" name="tel" placeholder="SỐ ĐIỆN THOẠI" 
+               pattern="0[0-9]{9}"
+               title="Vui lòng nhập số điện thoại bắt đầu bằng số 0 và đủ 10 số"
+               required
+               title="Vui lòng nhập số điện thoại hợp lệ">>
+               <input class='form-input' type="number" id="guest" name="guest" placeholder="SỐ LƯỢNG KHÁCH" required>   
+           </div>
+    
+           <div class="form-group">
+               <select class='form-input' name="party-type" id="party-type" placeholder="LOẠI TIỆC" required>
+                   <option class="booking-option" value="default">LOẠI TIỆC</option>
+                   <option class="booking-option" value="private-date">Private date</option>
+                   <option class="booking-option" value="Gathering">Gathering</option>
+               </select>
+               <select class='form-input' name="chef" id="chef" placeholder="ĐẦU BẾP">
+                   <option class="booking-option" value="default">CHỌN ĐẦU BẾP</option>
+                   <option class="booking-option" value="C1">CHEF TRUNG TRƯƠNG</option>
+                   <option class="booking-option" value="C2">CHEF DIỆP PHẠM</option>
+                   <option class="booking-option" value="C3">CHEF BĂNG DƯƠNG</option>
+                   <option class="booking-option" value="C4">CHEF PETER</option>
+               </select>    
+           </div>
+    
+           <div class="form-group">
+               <select class='form-input' name="branch" id="branch" placeholder="CHI NHÁNH" required>
+                   <option class="booking-option" value="default">CHI NHÁNH</option>
+                   <option class="booking-option" value="1">CHI NHÁNH THỦ ĐỨC</option>
+                   <option class="booking-option" value="2">CHI NHÁNH QUẬN 5</option>
+                   <option class="booking-option" value="3">CHI NHÁNH QUẬN 1</option>
+                   <option class="booking-option" value="4">CHI NHÁNH QUẬN 3</option>
+               </select>   
+           </div>
+    
+           <div class="form-group">
+               <textarea class='form-input' name="note" id="note" placeholder="GHI CHÚ" style="resize: none;"></textarea>
+           </div>
+               <input type="submit" placeholder="ĐẶT BÀN" name="submit" id="submit" value="ĐẶT BÀN" class='form-button'>
+               
+       </form>
+      
+    </div>
+</label>
+
+
+<!-- Footer container -->
+<div id="footer-container"></div>
+
+<script src="../js/Booking.js"></script>
+<script src="../js/load-components.js"></script>
+<script>
+    const containers = document.querySelectorAll('.body-chef-container-right-content');
+    const sliderSwapLinks = document.querySelectorAll('.slider-swap a');
+
+// Hiển thị phần tử đầu tiên mặc định
+    containers[0].classList.add('active');
+
+    sliderSwapLinks.forEach((link, index) => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            // Ẩn tất cả các phần tử
+            containers.forEach(container => container.classList.remove('active'));
+
+            // Hiển thị phần tử tương ứng
+            containers[index].classList.add('active');
+        });
+    });
+    let currentIndex = 0;
+    const slideWidth = containers[0].offsetWidth; // Lấy chiều rộng của một phần tử
+
+    sliderSwapLinks.forEach((link, index) => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            // Xác định phần tử trước và sau
+            const prevIndex = currentIndex;
+            currentIndex = index;
+            const nextIndex = (currentIndex + 1) % containers.length;
+
+            // Cập nhật class cho các phần tử
+            containers.forEach((container, i) => {
+                container.classList.remove('active', 'prev', 'next');
+                if (i === prevIndex) {
+                    container.classList.add('prev');
+                } else if (i === currentIndex) {
+                    container.classList.add('active');
+                } else if (i === nextIndex) {
+                    container.classList.add('next');
+                }
+            });
+        });
+    });</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script>
+            function rotate() {
+                var lastChild = $('.slider div:last-child').clone();
+                /*$('#test').html(lastChild)*/
+                $('.slider div').removeClass('firstSlide')
+                $('.slider div:last-child').remove();
+                $('.slider').prepend(lastChild)
+                $(lastChild).addClass('firstSlide')
+            }
+
+            window.setInterval(function () {
+                rotate()
+            }, 4000);
+
+        </script>
+
+    
+
+
+</body>
+</html>

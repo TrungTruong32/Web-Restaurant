@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gọi món - Nhà hàng Miền Tây</title>
+    <link rel="stylesheet" href="../css/styles_order.css">
+    <link rel="stylesheet" href="../css/styles_header.css">
+    <link rel="stylesheet" href="../css/styles_footer.css"> 
+    <link rel="stylesheet" href="../css/styles_introduction_booking.css">
+    <!-- <link rel="stylesheet" href="../css/styles_order_2.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+VIC+Guides&display=swap" rel="stylesheet">
+    <style>
+        .booking-popup{
+            background:rgba(0, 0, 0, 0.8);
+            position:fixed;
+            top:0;
+            bottom: 0;
+            left:0;
+            right: 0;
+            transform: translateY(-150%);
+            transition: transform linear 0.3s;
+            z-index:10000;
+
+        }
+        #input-checkbox2:checked ~ .booking-popup{
+            transform: translateY(0%);
+        }
+        .booking-container{
+            margin:10vh 20vw;
+            justify-content: center;
+            align-items: center;
+           
+            
+        }
+        .form-group{
+            box-sizing: border-box;
+            box-shadow: 5px 5px 5px whitesmoke;
+        }
+
+        .form-group{
+    display: flex;
+    justify-content:space-between;
+    /* padding-left: 10vh ;
+    padding-right: 6vh ; */
+    
+        }
+        #date{
+            flex:0.5;
+        }
+        #time{
+            flex:0.5;
+        }
+        #date{
+            flex:0.5;
+        }
+        #name{
+            flex:1;
+        }
+        #email{
+            flex:1;
+        }
+        #tel{
+            flex:0.5;
+        }
+        #guest{
+            flex:0.5;
+        }
+        #party-type{
+            flex:0.5;
+        }
+        #chef{
+            flex:0.5;
+        }
+        #branch{
+            flex:1;
+        }
+        #note{
+            flex:1;
+        }
+        #submit{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex:1;
+            margin-top: 15px;
+            margin-left: 45%;
+            background-color: #8a0000;
+            border:none;
+            padding: 13px;
+            color:var(--fourth-color);
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+        #submit:hover{
+            box-shadow: 5px 5px 10px var(--fourth-color);
+
+        }
+        .form-button{
+            display: flex;
+            justify-content: center;
+        }
+        .form-input{
+            padding:15px;
+            border:none;
+            background-color: var(--third-color);
+            border-bottom: 1px solid var(--primary-color);
+        }
+        input::placeholder {
+            color: var(--primary-color); /* Gray placeholder color */
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        }
+        .booking-heading,.booking-decoration{
+            display: flex;
+            justify-content: center;
+        }
+        #input-checkbox2{
+        position: fixed;
+        top:0;
+        right:0;
+        
+       }
+    </style>
+
+</head>
+<body>
+    <!-- Include Header -->
+    <div id="header-container"></div>
+    <input type="checkbox" id="input-checkbox2" hidden>
+    <label for="input-checkbox2" id="take-action-order-con" class="take-action-order-con" style="writing-mode: vertical-rl; font-size: larger; text-align: center;">ĐẶT BÀN</label>
+
+    <div id="menu-choosing"class="main-container">
+        <h2>Mời bạn chọn món</h2>
+        <h2>Hãy kiểm tra thực đơn trước khi gửi nhé!</h2>
+    <!-- Existing Order Content -->
+        <div class="container_menu">
+            <div class="categories">
+                <h1 style="display: flex; justify-content: flex-end;">DANH MỤC</h1>
+                <ul id="categoryList"></ul>
+            </div>
+            <div class="menu">
+                <h1>THỰC ĐƠN</h1> 
+                <div id="menuList" class="menu-list"></div>
+            </div>
+                        
+        <!-- Existing Cart -->
+        <div id="cart" class="cart hidden">
+            <h3>Giỏ hàng</h3>
+            <div id="cartItems"></div>
+            <div class="cart-footer">
+                <p>Số món: <span id="cartCount">0</span></p>
+                <p>Tổng giá trị: <span id="cartTotal">0 VND</span></p>
+            </div>
+        </div>
+        </div>  
+    </div>
+    <div id="cartIcon" class="cart-icon">
+        <img src="../images/Web/icon-cart.png" alt="Giỏ hàng" />
+    </div>
+
+
+    <!-- Existing Modals -->
+    <div id="orderTypeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeOrderTypeModal()">&times;</span>
+            <h3 class="modal-title">Chọn phương thức đặt hàng</h3>
+            <div class="order-options">
+                <div class="order-option" onclick="selectOrderType('dine-in')">
+                    <i class="fas fa-utensils"></i>
+                    <div>
+                        <h4>Ăn tại chỗ</h4>
+                        <p>Dùng bữa tại nhà hàng</p>
+                    </div>
+                </div>
+                <div class="order-option" onclick="selectOrderType('takeaway')">
+                    <i class="fas fa-shopping-bag"></i>
+                    <div>
+                        <h4>Mang về</h4>
+                        <p>Đặt món và tự đến lấy</p>
+                    </div>
+                </div>
+                <div class="order-option" onclick="selectOrderType('delivery')">
+                    <i class="fas fa-motorcycle"></i>
+                    <div>
+                        <h4>Giao hàng</h4>
+                        <p>Giao đến địa chỉ của bạn</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-confirm" onclick="confirmOrderType()">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="dineInModal" class="form-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeFormModal('dineInModal')">&times;</span>
+            <h3>Thông tin đặt bàn</h3>
+            <form id="dineInForm" onsubmit="submitDineInForm(event)">
+                <div class="form-group">
+                    <label for="customerName">Họ tên *</label>
+                    <input type="text" id="customerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Số điện thoại *</label>
+                    <input type="tel" id="phoneNumber"  
+                    pattern="0[0-9]{9}"
+                    title="Vui lòng nhập số điện thoại bắt đầu bằng số 0 và đủ 10 số"
+                    required
+                    title="Vui lòng nhập số điện thoại hợp lệ">
+                </div>
+                <div id="branch-container" style="display: none;">
+                    <div class="form-group">
+                        <label for="branch-select">Chi nhánh:</label>
+                        <select id="branch-select" required>
+                            <option value="">Chọn chi nhánh</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="table-container" style="display: none;">
+                    <div class="form-group">
+                        <label for="table-select">Bàn:</label>
+                        <select id="table-select" required disabled>
+                            <option value="">Chọn bàn</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- <div class="form-group">
+                    <label for="tableNumber">Số bàn *</label>
+                    <input type="text" id="tableNumber" required>
+                </div> -->
+                <div class="form-group">
+                    <label for="dineInNote">Ghi chú</label>
+                    <textarea id="dineInNote" rows="3"></textarea>
+                </div>
+                <button type="submit" class="submit-button">Xác nhận đặt bàn</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="takeawayModal" class="form-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeFormModal('takeawayModal')">&times;</span>
+            <h3>Thông tin đặt mang về</h3>
+            
+            <form id="takeawayForm" onsubmit="submitTakeawayForm(event)">
+                <div class="form-group">
+                    <label for="customerNametakeaway">Họ tên *</label>
+                    <input type="text" id="customerNametakeaway" required>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumbertakeaway">Số điện thoại *</label>
+                    <input type="tel" id="phoneNumbertakeaway"  
+                    pattern="0[0-9]{9}"
+                    title="Vui lòng nhập số điện thoại bắt đầu bằng số 0 và đủ 10 số"
+                    required
+                    title="Vui lòng nhập số điện thoại hợp lệ">
+                </div>
+                <div id="branch-container" style="display: none;">
+                    <div class="form-group">
+                        <label for="branch-select">Chi nhánh:</label>
+                        <select id="branch-select" required>
+                            <option value="">Chọn chi nhánh</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="takeawayNote">Ghi chú</label>
+                    <textarea id="takeawayNote" rows="3"></textarea>
+                </div>
+                <button style="margin-right: 10px;" type="submit" class="submit-button">Xác nhận đặt món</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="successModal" class="form-modal">
+        <div class="modal-content success-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 id="successTitle">Đặt món thành công!</h3>
+            <p id="successMessage"></p>
+            <button onclick="closeSuccessModal()" class="ok-button">OK</button>
+        </div>
+    </div>
+
+
+
+    <label for="input-checkbox2" class="booking-popup">
+        <div class="booking-container">
+            <div class="booking-heading">ĐẶT BÀN</div>
+           <div class="booking-decoration">
+               <img src="../images/Booking/booking-decoration.png" alt="">
+           </div>
+           <form class="booking-form" action="https://api-gateway.fullstack.edu.vn/action_page.php"
+           id="booking-form"
+           autocomplete="off"
+        
+           >
+               <div class="form-group">
+                   <input class='form-input' type="date" id="date" name="date" placeholder="NGÀY ĐẾN" aria-placeholder="NGÀY ĐẾN" required value="NGÀY ĐẾN">
+                   <input class='form-input' type="time" id="time" name="time" placeholder="THỜI GIAN" required>
+        
+               </div>
+               <div class="form-group">
+                   <input class='form-input' type="text" id="name" name="name" placeholder="HỌ TÊN" required>
+               </div>
+               
+               <div class="form-group">
+                   <input class='form-input' type="email" id="email" name="email" placeholder="EMAIL" required>
+               </div>
+        
+               <div class="form-group">
+                   <input class='form-input'  type="tel" id="tel" name="tel" placeholder="SỐ ĐIỆN THOẠI" 
+                   pattern="0[0-9]{9}"
+                   title="Vui lòng nhập số điện thoại bắt đầu bằng số 0 và đủ 10 số"
+                   required
+                   title="Vui lòng nhập số điện thoại hợp lệ">>
+                   <input class='form-input' type="number" id="guest" name="guest" placeholder="SỐ LƯỢNG KHÁCH" required>   
+               </div>
+        
+               <div class="form-group">
+                   <select class='form-input' name="party-type" id="party-type" placeholder="LOẠI TIỆC" required>
+                       <option class="booking-option" value="default">LOẠI TIỆC</option>
+                       <option class="booking-option" value="private-date">Private date</option>
+                       <option class="booking-option" value="Gathering">Gathering</option>
+                   </select>
+                   <select class='form-input' name="chef" id="chef" placeholder="ĐẦU BẾP">
+                       <option class="booking-option" value="default">CHỌN ĐẦU BẾP</option>
+                       <option class="booking-option" value="C1">CHEF TRUNG TRƯƠNG</option>
+                       <option class="booking-option" value="C2">CHEF DIỆP PHẠM</option>
+                       <option class="booking-option" value="C3">CHEF BĂNG DƯƠNG</option>
+                       <option class="booking-option" value="C4">CHEF PETER</option>
+                   </select>    
+               </div>
+        
+               <div class="form-group">
+                   <select class='form-input' name="branch" id="branch" placeholder="CHI NHÁNH" required>
+                       <option class="booking-option" value="default">CHI NHÁNH</option>
+                       <option class="booking-option" value="1">CHI NHÁNH THỦ ĐỨC</option>
+                       <option class="booking-option" value="2">CHI NHÁNH QUẬN 5</option>
+                       <option class="booking-option" value="3">CHI NHÁNH QUẬN 1</option>
+                       <option class="booking-option" value="4">CHI NHÁNH QUẬN 3</option>
+                   </select>   
+               </div>
+        
+               <div class="form-group">
+                   <textarea class='form-input' name="note" id="note" placeholder="GHI CHÚ" style="resize: none;"></textarea>
+               </div>
+                   <input type="submit" placeholder="ĐẶT BÀN" name="submit" id="submit" value="ĐẶT BÀN" class='form-button'>
+                   
+           </form>
+          
+        </div>
+    </label>
+    
+    <!-- Footer container -->
+    <div id="footer-container"></div>
+
+
+    <script src="../js/load-components.js"></script>
+    <script src="../js/script_order.js"></script>
+    <!-- <script src="../js/script_introduction.js"></script> -->
+</body>
+</html>

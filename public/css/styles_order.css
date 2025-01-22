@@ -1,0 +1,966 @@
+
+:root {
+  --primary-color: #131010;
+  --second-color: #543A14;
+  --third-color: #F0BB78;
+  --fourth-color: #FFF0DC;
+  --cover-height: 13vh;
+  --button-color: #1F4529;
+
+}
+
+a{
+  text-decoration: none;
+}
+
+* {
+  left: 0;
+  box-sizing:border-box;
+
+}
+h1{
+  color: var(--third-color);
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18px;
+}
+
+h2{
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 900;
+  font-style: normal;
+  color: var(--fourth-color);
+  align-items:end;
+}
+h3{
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--fourth-color);
+  align-items:center;
+}
+
+p{
+  font-family: "Philosopher", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 20px;
+  word-spacing: 3px;
+  text-align: justify;
+  color:var(--third-color)
+}
+body{
+  inset: auto;
+  margin:0;
+  padding:0;
+}
+
+/* Tổng quan về container */
+.main-container{
+  padding: 20vh 0;
+  background:linear-gradient(to bottom, var(--primary-color), var(--second-color),var(--third-color));
+}
+
+.container_menu {
+  display: flex;
+  justify-content: space-between;
+  /* margin-top: 50px;
+  margin-right: 10%;
+  margin-left: 10%; */
+  margin-bottom: 60px;
+  height:  250vh;
+  position: relative;
+  z-index: 1;
+}
+.container {
+
+  display: flex;
+  margin-top: 7%;
+  margin-right: 10%;
+  margin-left: 10%;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Phần danh mục */
+.categories {
+  width: 20%;
+  padding: 10px;
+  border-right: 1px solid #ccc;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center; */
+}
+
+.categories ul {
+  list-style-type: none;
+  color:var(--fourth-color);
+}
+
+.categories li {
+  margin: 10px 0;
+  padding: 5px 0;
+  cursor: pointer;
+  font-size: 18px;
+  color:var(--fourth-color);
+  transition:all 0.3 ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+
+
+}
+
+.categories li:hover {
+  color: var(--third-color);
+  border-bottom: 2px solid var(--second-color);
+  
+
+}
+
+/* Làm nổi bật danh mục được chọn */
+.selected-category {
+  background-color: rgb(137, 65, 65);
+  color: red;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+
+/* Phần thực đơn */
+
+
+.menu-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Chia thành 3 cột có kích thước bằng nhau */
+  gap: 10px;  /* Khoảng cách giữa các món ăn */
+}
+
+/* Phần thực đơn */
+.menu {
+  width: 100%;
+  padding: 10px;
+  /* display: flex; */
+  flex-wrap: wrap;  /* Cho phép các món ăn xếp thành hàng */
+  gap: 20px;  /* Khoảng cách giữa các món ăn */
+}
+
+/* Mỗi món ăn */
+.menu .menu-item {
+  display: flex;
+  /* align-items: center; */
+  width: calc(100%); 
+  height: calc(100%);
+  box-sizing: border-box;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 5px 5px 10px var(--second-color);
+  transition: transform 0.3s ease;
+}
+
+.menu .menu-item:hover {
+  transform: scale(1.02);  /* Khi hover vào món ăn, nó sẽ phóng to một chút */
+}
+
+.menu .menu-item img {
+  width: 120px;  /* Chiều rộng hình ảnh */
+  height: 120px;  /* Chiều cao hình ảnh */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 15px;  /* Khoảng cách giữa hình ảnh và thông tin */
+}
+
+.menu .menu-item .info {
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  flex-grow: 1;
+  padding:0 2px;
+}
+
+.menu .menu-item h3 {
+  font-size: 25px;
+  margin: 5px 0;
+  color:var(--primary-color);
+  font-weight: 900;
+
+}
+
+.menu .menu-item p {
+  font-size: 18px;
+  color: var(--primary-color);
+  padding:-5px 2px;
+  line-height: 1.5em;
+}
+
+.menu .menu-item .add-btn {
+  color:var(--fourth-color);
+  background-color: var(--button-color);
+  padding:7px 10px;
+  border: 0px solid var(--primary-color);
+  border-radius: 11px;
+  box-shadow: 0 3px 2px var(--fourth-color);
+  display: flex;
+  justify-content: flex-start;
+  
+}
+
+.menu .menu-item .add-btn:hover {
+    color: var(--third-color); /* Thay đổi màu chữ */
+}
+
+/* Giỏ hàng ở góc phải dưới */
+.cart {
+  position: fixed;
+  /* top: 20vh; */
+  left: auto;
+  right: 0;
+  bottom: 0;
+  height: fit-content;
+  z-index: 1000;
+  padding: 15px;
+  background-color: var(--third-color);
+  border: 1px solid var(--second-color);
+  border-radius: 8px;
+  box-shadow: -10px -10px 15px rgba(0, 0, 0, 0.5);
+  width: 250px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+/* .cart {
+  position: fixed;
+  top: 20vh;
+  left:auto;
+  right:0;
+  bottom:0;
+  height: calc(100vh - 140px);
+  z-index: 1000;
+  padding: 15px;
+  background-color: var(--third-color);
+  border: 1px solid var(--second-color);
+  border-radius: 8px;
+  box-shadow: -10px -10px 15px rgba(0, 0, 0, 0.5);
+  width: 250px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+} */
+
+.cart.hidden {
+  transform: translateY(120%); /* Ẩn giỏ hàng bằng cách kéo xuống ngoài màn hình */
+}
+
+
+/* Danh sách các món ăn trong giỏ hàng */
+.cart-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f8f8f8;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.cart-item p {
+  margin: 5px 0;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+.cart-item hr {
+  margin: 10px 0;
+}
+
+/* Thông tin giỏ hàng */
+.cart h3 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 900;
+  color:var(--primary-color);
+  font-weight: bold;
+}
+
+.cart p {
+  margin: 0 0;
+  display:flex;
+  justify-content: center;
+  border: 1 solid var(--primary-color);
+  align-items: center;
+  font-size: 15px;
+}
+
+
+.cart span {
+  font-weight: bold;
+  color: (var(--primary-color));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-item>.quantity-control{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Điều khiển số lượng */
+.quantity-control {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.quantity-control button {
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+.quantity-control button:hover {
+  background-color: #ddd;
+}
+
+.quantity-control input {
+  width: 50px;
+  text-align: center;
+  padding: 5px;
+  margin: 0 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+.cart-icon {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 10vh;
+  left:95%;
+  right:0;
+  bottom:0;
+  z-index: 1000;
+  background-color: #dad3cc;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.cart-icon img {
+  width: 35px;
+  height: 35px;
+  mix-blend-mode: darken;
+}
+
+
+/* Ghim phần tổng giá trị và số món ở cuối */
+.cart-footer {
+  margin-top: auto; /* Đẩy xuống dưới cùng */
+  padding-top: 10px;
+  border-top: 1px solid var(--primary-color);
+  position: sticky;
+  bottom: 0;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Nút tắt giỏ hàng */
+.close-cart {
+  margin-top: 10px;
+  background-color: var(--button-color);
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-cart:hover {
+  background-color: #ff6666;
+}
+
+/* Style cho input ghi chú trong giỏ hàng */
+.cart-item .note-input {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+/* Media Queries cho Responsive Design */
+
+/* Cho màn hình lớn (Desktop và Laptop) */
+@media screen and (min-width: 1024px) {
+  .menu-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .container_menu {
+    margin-top: 7%;
+    margin-right: 10%;
+    margin-left: 10%;
+  }
+}
+
+/* Cho máy tính bảng (Tablet) */
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .menu-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .container_menu {
+    margin-top: 10%;
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+  
+  .categories {
+    width: 25%;
+  }
+  
+  .menu .menu-item {
+    padding: 10px;
+  }
+  
+  .menu .menu-item img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Cho điện thoại di động */
+@media screen and (max-width: 767px) {
+  .menu-list {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .container_menu {
+    display: block;
+    flex-direction: column;
+    margin-top: 15%;
+    margin-right: 3%;
+    margin-left: 3%;
+  }
+  
+  .categories {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+  
+  .categories ul {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px 0;
+  }
+  
+  .categories li {
+    margin: 0 10px;
+    padding: 5px 10px;
+  }
+  
+  .menu .menu-item {
+    padding: 8px;
+  }
+  
+  .menu .menu-item img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .menu .menu-item h3 {
+    font-size: 16px;
+  }
+  
+  .menu .menu-item p {
+    font-size: 12px;
+  }
+  
+  /* Điều chỉnh giỏ hàng cho mobile */
+  .cart {
+    width: 90%;
+    right: 5%;
+    left: 5%;
+    height: 60vh;
+  }
+  
+  .cart-icon {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+
+}
+
+/* Đảm bảo text không bị overflow */
+* {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Tối ưu font size cho các thiết bị */
+html {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Đảm bảo các hình ảnh responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Nút đặt hàng trong giỏ hàng */
+.order-button {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.order-button:hover {
+    background-color: var(--second-color);
+}
+
+/* Thêm style cho modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--second-color);
+    padding: 25px;
+    width: 100%;
+    min-height: 200px;
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative;
+    margin: 0 auto;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-title {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    color: var(--fourth-color);
+    font-size:25px;
+}
+
+.order-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.order-option {
+    padding: 15px;
+    /* border: 1px solid var(--second-color); */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1rem;
+}
+
+.order-option:hover {
+    border-color: var(--second-color);
+    background-color: var(--primary-color);
+}
+.order-option i {
+  font-size: 24px;
+  color: var(--third-color);
+}
+.order-option h4{
+  font-size: 18px;
+  color:var(--fourth-color);
+}
+.order-option.selected {
+    border-color: var(--second-color);
+    background-color: var(--primary-color);
+}
+
+.close-modal {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    left: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+.modal-buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.modal-confirm {
+    background-color: var(--button-color);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 100%;
+    max-width: 200px;
+}
+
+.modal-confirm:hover {
+    background-color: var(--primary-color);
+}
+
+/* Style cho modal form */
+.form-modal {
+    display: none;
+    position: fixed;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1100;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 8px;
+}
+
+.form-modal .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--second-color);
+    /* padding: 0px; */
+    border-radius: 12px;
+    width: 90%;
+    /* max-width: 400px; */
+    position: relative;
+    animation: modalSlideIn 0.3s ease;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.form-group label {
+    flex:1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left:0px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--fourth-color);
+}
+
+.form-group select,
+.form-group input,
+.form-group textarea {
+    flex:2;
+    resize: none;
+    max-width: 80%;
+    /* padding: 10px; */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 123, 0, 0.1);
+}
+
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--button-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    /* display: flex;
+    justify-content: flex-start; */
+}
+
+.submit-button:hover {
+    background-color: var(--primary-color);
+}
+
+/* Success Modal */
+.success-content {
+    text-align: center;
+    padding: 40px 30px;
+}
+
+.success-icon {
+    font-size: 60px;
+    color: rgb(204, 80, 80);
+    margin-bottom: 20px;
+}
+
+/* .success-content h3 {
+} */
+
+.success-content p {
+    margin-bottom: 25px;
+}
+
+.ok-button {
+    padding: 10px 40px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ok-button:hover {
+    background-color: var(--primary-color);
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Style cho modal thông báo thành công */
+.success-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.success-content {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+}
+
+.success-icon {
+    font-size: 70px;
+    color: #4CAF50;
+    margin-bottom: 20px;
+    animation: scaleIn 0.5s ease;
+}
+
+.success-icon i {
+    animation: checkmark 1s ease-in-out;
+}
+
+.success-title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 15px;
+    animation: fadeInUp 0.5s ease 0.3s both;
+}
+
+.success-message {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 25px;
+    animation: fadeInUp 0.5s ease 0.5s both;
+}
+
+.success-button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease 0.7s both;
+}
+
+.success-button:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+/* Animations */
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes checkmark {
+    0% {
+        transform: scale(0) rotate(-45deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(-45deg);
+    }
+    100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animation cho modal */
+.modal-show {
+    animation: modalFadeIn 0.3s ease forwards;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-container h2{
+  font-size: 2rem;
+  padding-bottom: 0;
+  display:flex;
+  justify-content: center;
+  flex:1;
+  align-items: center;
+  font-family: "Playwrite AU VIC Guides", serif;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* text-fill-color: transparent; */
+  animation: text-shine 2s linear infinite;
+
+  background: linear-gradient(to right, var(--third-color),var(--fourth-color)); /* Thay đổi màu sắc theo ý muốn */
+  background-size: 400% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* text-fill-color: transparent; */
+  animation: text-shine 3s linear infinite    
+
+}
+
+@keyframes text-shine {
+  to {
+  background-position: 100% 0;
+  }
+}

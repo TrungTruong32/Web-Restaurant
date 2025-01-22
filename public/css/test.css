@@ -1,0 +1,60 @@
+/* Style cho body và button */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-out;
+  }
+  
+  body.loaded {
+    transform: translateY(0);
+  }
+  
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Phần tử div chứa nội dung */
+  #content {
+    width: 100%;
+    display: none; /* Ban đầu ẩn phần tử */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Ẩn phần vượt quá khi chưa hiển thị */
+  }
+  
+  /* Phần tử nội dung bên trong div */
+  .content-box {
+    width: 80%;
+    margin: 20px auto;
+    background-color: lightblue;
+    padding: 20px;
+    text-align: center;
+    transform: translateY(-100%); /* Bắt đầu ở vị trí trên cùng */
+    transition: transform 0.5s ease-out; /* Hiệu ứng trượt */
+  }
+  
+  /* Lớp này dùng để hiển thị div */
+  #content.show {
+    display: flex; /* Hiển thị phần tử khi có lớp "show" */
+  }
+  
+  #content.show .content-box {
+    transform: translateY(0); /* Di chuyển phần tử xuống vị trí ban đầu */
+  }
+  

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt bàn - Nhà hàng Miền Tây</title>
+    <link rel="stylesheet" href="../css/styles_introduction_booking.css">
+    <link rel="stylesheet" href="../css/styles_header.css">
+    <link rel="stylesheet" href="../css/styles_footer.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Dancing+Script:wght@400..700&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Include Header -->
+    <div id="header-container"></div>
+    <div id="booking-page" class="booking-page">
+        <div class="booking-page-container">
+            <div class="booking">
+                <div class="booking-container">
+                     <div class="booking-heading">ĐẶT BÀN</div>
+                    <div class="booking-decoration">
+                        <img src="../images/Booking/booking-decoration.png" alt="">
+                    </div>
+                    <form action="https://api-gateway.fullstack.edu.vn/action_page.php"
+                    id="booking-form"
+                    autocomplete="off"
+
+                    >
+                        <div class="form-group">
+                            <input class='form-input' type="date" id="date" name="date" placeholder="NGÀY ĐẾN" aria-placeholder="NGÀY ĐẾN" required value="NGÀY ĐẾN">
+                            <input class='form-input' type="time" id="time" name="time" placeholder="THỜI GIAN" required>
+    
+                        </div>
+                        <div class="form-group">
+                            <input class='form-input' type="text" id="name" name="name" placeholder="HỌ TÊN" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input class='form-input' type="email" id="email" name="email" placeholder="EMAIL" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input class='form-input'  type="tel" id="tel" name="tel" placeholder="SỐ ĐIỆN THOẠI" 
+                            pattern="0[0-9]{9}"
+                            title="Vui lòng nhập số điện thoại bắt đầu bằng số 0 và đủ 10 số"
+                            required
+                            title="Vui lòng nhập số điện thoại hợp lệ">>
+                            <input class='form-input' type="number" id="guest" name="guest" placeholder="SỐ LƯỢNG KHÁCH" required>   
+                        </div>
+
+                        <div class="form-group">
+                            <select class='form-input' name="party-type" id="party-type" placeholder="LOẠI TIỆC" required>
+                                <option class="booking-option" value="default">LOẠI TIỆC</option>
+                                <option class="booking-option" value="private-date">Private date</option>
+                                <option class="booking-option" value="Gathering">Gathering</option>
+                            </select>
+                            <select class='form-input' name="chef" id="chef" placeholder="ĐẦU BẾP">
+                                <option class="booking-option" value="default">CHỌN ĐẦU BẾP</option>
+                                <option class="booking-option" value="C1">CHEF TRUNG TRƯƠNG</option>
+                                <option class="booking-option" value="C2">CHEF DIỆP PHẠM</option>
+                                <option class="booking-option" value="C3">CHEF BĂNG DƯƠNG</option>
+                                <option class="booking-option" value="C4">CHEF PETER</option>
+                            </select>    
+                        </div>
+
+                        <div class="form-group">
+                            <select class='form-input' name="branch" id="branch" placeholder="CHI NHÁNH" required>
+                                <option class="booking-option" value="default">CHI NHÁNH</option>
+                                <option class="booking-option" value="1">CHI NHÁNH THỦ ĐỨC</option>
+                                <option class="booking-option" value="2">CHI NHÁNH QUẬN 5</option>
+                                <option class="booking-option" value="3">CHI NHÁNH QUẬN 1</option>
+                                <option class="booking-option" value="4">CHI NHÁNH QUẬN 3</option>
+                            </select>   
+                        </div>
+
+                        <div class="form-group">
+                            <textarea class='form-input' name="note" id="note" placeholder="GHI CHÚ" style="resize: none;"></textarea>
+                        </div>
+                            <input type="submit" placeholder="ĐẶT BÀN" name="submit" id="submit" value="ĐẶT BÀN" class='form-button'>
+                            
+                    </form>
+                   
+                </div>
+
+            </div>
+            <div class="booking-sale">
+                <div class="booking-sale-container">
+                    <div class="booking-logo-container">
+                        <div class="booking-logo"></div>
+                        <div class=booking-logo-content></div>
+                    </div>
+
+                    <h5 class="booking-slogan" style="font-style: italic;">"Một chốn bình yên giữa lòng thành phố"</h5>                 </div>
+                    <div class="booking-holiday-banner">
+                        <div class="booking-holiday-banner-first">Special Events</div>
+                        <div class="booking-holiday-banner-second" style="text-decoration: overline;" >
+                            SPECIAL OFFER
+                        </div>
+                        <div class="booking-holiday-banner-third">
+                            <div class="booking-holiday-banner-third-FREE">FREE</div>
+                            <div class="booking-holiday-banner-third-setup">
+                                <div class="booking-holiday-banner-third-set">Set</div>
+                                <div class="booking-holiday-banner-third-up">Up</div>
+                            </div>
+                        </div>
+                        <div class="booking-holiday-banner-fourth">
+                            <h3><a class='button-link' href="tel:+84987654321">LIÊN HỆ NGAY</a></h3>
+                        </div>
+                    </div>
+            </div>
+
+    </div>
+    <!-- Footer container -->
+    <div id="footer-container"></div>
+
+
+    <script src="../js/load-components.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/Booking.js"> </script>
+</body>
+</html>

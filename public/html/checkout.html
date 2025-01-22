@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt hàng - Thanh toán</title>
+    <link rel="stylesheet" href="../css/styles_checkout.css">
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='order.html'">← Quay lại</button>
+    
+    <div class="container">
+        <div class="checkout-form">
+            <h2>Thông tin đặt hàng</h2>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="name">Họ và tên *</label>
+                    <input type="text" id="name" required>
+                </div>
+
+                <div class="form-group">                    
+                    <label for="phone">Số điện thoại *</label>
+                    <input type="tel" id="phone"  
+                    pattern="0[0-9]{9}"
+                    title="Vui lòng nhập số điện thoại bắt đầu bằng số 0 và đủ 10 số"
+                    required
+                    title="Vui lòng nhập số điện thoại hợp lệ">
+                </div>
+
+                <div class="form-group">
+                    <label for="province">Tỉnh/Thành phố *</label>
+                    <select id="province" required>
+                        <option value="">Chọn Tỉnh/Thành phố</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="district">Quận/Huyện *</label>
+                    <select id="district" required disabled>
+                        <option value="">Chọn Quận/Huyện</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="ward">Phường/Xã *</label>
+                    <select id="ward" required disabled>
+                        <option value="">Chọn Phường/Xã</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="specificAddress">Địa chỉ cụ thể *</label>
+                    <textarea id="specificAddress" placeholder="Số nhà, tên đường..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="payment_method">Phương thức thanh toán *</label>
+                    <select id="payment_method" required>
+                        <option value="cod">Thanh toán khi nhận hàng</option>
+                        <option value="banking">Chuyển khoản ngân hàng</option>
+                        <option value="momo">Ví MoMo</option>
+                    </select>
+                </div>
+                <!-- Thêm div này để hiển thị thông tin thanh toán -->
+                <div id="payment-info" style="display: none;"></div>
+
+                <div class="form-group">
+                    <label for="note">Ghi chú thêm</label>
+                    <textarea id="note"></textarea>
+                </div>
+            </form>
+        </div>
+
+        <div class="order-summary">
+            <h2>Đơn hàng của bạn</h2>
+            <div id="cartItems" class="cart-items">
+                <!-- Cart items will be inserted here -->
+            </div>
+            <div class="order-total">
+                <div class="total-row">
+                    <span>Tạm tính:</span>
+                    <span id="subtotal">0 VND</span>
+                </div>
+                <div class="total-row">
+                    <span>Phí vận chuyển:</span>
+                    <span id="shippingFee">0 VND</span>
+                </div>
+                <div class="total-row grand-total">
+                    <span>Tổng cộng:</span>
+                    <span id="totalAmount">0 VND</span>
+                </div>
+            </div>
+            <button class="submit-order" onclick="submitOrder(event)">Xác nhận đặt hàng</button>
+        </div>
+    </div>
+
+    <script src="../js/script_checkout.js"></script>
+</body>
+</html> 
